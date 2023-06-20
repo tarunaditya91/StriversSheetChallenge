@@ -1,0 +1,17 @@
+
+Node *findMiddle(Node *head) {
+    // Write your code here
+    Node*head1=head;
+    vector<int>a;
+
+    while(head1!=NULL){
+        a.push_back(head1->data);
+        head1=head1->next;
+    }
+    int ana=a.size()/2;
+    while(ana!=0){
+        head=head->next;
+        ana=ana-1;
+    }
+    return head;
+}
