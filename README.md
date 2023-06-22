@@ -1,2 +1,7 @@
 # StriversSheetChallenge
-Language cpp
+
+
+*.cpp linguist-detectable=true 
+
+
+
