@@ -27,3 +27,12 @@ Node *addTwoNumbers(Node *num1, Node *num2)
     }
     return dumy->next;
 }
+
+
+
+*.cpp linguist-detectable=true  
+*.java linguist-detectable=false  
+*.js linguist-detectable=false  
+*.html linguist-detectable=false  
+*.xml linguist-detectable=false    
+
