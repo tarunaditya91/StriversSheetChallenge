@@ -1,0 +1,31 @@
+ void rotatesd(vector<int>& nums, int k) 
+    {
+        vector<int> vect ;
+        
+        int n = nums.size() ;
+        
+        for(int i = 0 ; i < n ; i++)
+            vect.push_back(nums[i]) ;
+        
+        for(int i = 0 ; i < n ; i++)
+            nums[(i+k) % n] = vect[i] ;
+    }
+
+Node *rotate(Node *head, int k) {
+     // Write your code here.
+     vector<int>ans;
+     while(head!=NULL){
+          ans.push_back(head->data);
+          head=head->next;
+     }
+     rotatesd(ans,k);
+     
+     Node*ni=new Node();
+     Node*a=ni;
+     for(int i=0;i<ans.size();i++){
+          a->next=new Node(ans[i]);
+          a=a->next;
+     }
+     return ni->next;
+
+}
