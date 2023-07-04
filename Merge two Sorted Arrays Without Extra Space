@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+
+vector<int> ninjaAndSortedArrays(vector<int>& arr1, vector<int>& arr2, int m, int n) {
+	// Write your code here.
+	vector<int> arr3;
+	int left=m-1;
+	int right=n-1;
+	int index=m+n-1;
+	while(left>=0 && right>=0){
+		if(arr1[left]<=arr2[right]){
+			arr1[index]=arr1[left];
+			left--;
+			index--;
+		}
+		else{
+			arr1[index]=arr2[right];
+			right--;
+			index--;
+		}
+	}
+	while(left>=0){
+		arr1[index]=arr1[left];
+		index--;
+		left--;
+	}
+	while(right>=0){
+		arr1[index]=arr2[right];
+		index--;
+		right--;
+	}
+	sort(arr1.begin(),arr1.end());
+	return arr1;
+}
