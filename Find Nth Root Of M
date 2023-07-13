@@ -1,0 +1,18 @@
+int f(int i,int n){
+  int sum=1;
+  while(n>0){
+    sum=sum*i;
+    n--;
+  }
+  return sum;
+}
+int NthRoot(int n, int m) {
+  // Write your code here.
+  for(int i=1;i<m;i++){
+    if(f(i,n)==m)return i;
+    else if(f(i,n)>m){
+      break;
+    }
+  }
+  return -1;
+}
