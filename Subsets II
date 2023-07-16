@@ -1,0 +1,32 @@
+class Solution {
+public:
+    
+    void generate(vector<int> sets, set<vector<int>>&s,int i,vector<int>& nums)
+    {
+        if(i==nums.size())
+        {
+            s.insert(sets);
+            return;
+        }
+        //generate(sets,s,i+1,nums);
+
+        sets.push_back(nums[i]);
+        generate(sets,s,i+1,nums);
+        sets.pop_back();
+        generate(sets,s,i+1,nums);
+
+    }
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        vector<int> sets;
+        set<vector<int>> s;
+        vector<vector<int>> ans;
+        generate(sets,s,0,nums);
+        for(auto i:s)
+        {
+            ans.push_back(i);
+        }
+        return ans;
+        
+    }
+};
