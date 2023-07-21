@@ -1,0 +1,31 @@
+bool isValid(int board[][9],int row,int col,int d){
+    for(int i=0;i<9;i++){
+        if(board[i][col]==d) return false;
+        if(board[row][i]==d) return false;
+        if(board[3*(row/3)+(i/3)][3*(col/3)+(i%3)]==d) return false;
+    }
+    return true;
+}
+
+bool sudokuSolver(int board[][9]) {
+    /* Don't write main().
+     *  Don't read input, it is passed as function argument.
+     *  Don't print output and return output as specified in the question
+    */
+    for(int i=0;i<9;i++){
+        for(int j=0;j<9;j++){
+            if(board[i][j]==0){
+              for (int d = 1; d <= 9; d++) {
+                if (isValid(board, i, j, d)){
+                    board[i][j]=d;
+                    if(sudokuSolver(board)) return true;
+                    else board[i][j]=0;
+
+                }
+              }
+              return false;
+                }
+            }
+        }
+        return true;
+    }
